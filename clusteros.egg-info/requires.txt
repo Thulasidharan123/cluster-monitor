@@ -1,0 +1,17 @@
+customtkinter>=5.2.0
+paramiko>=3.0.0
+openpyxl>=3.1.0
+
+[all]
+screeninfo>=0.8
+pygame>=2.5
+opencv-python>=4.8
+numpy>=1.24
+
+[display]
+screeninfo>=0.8
+
+[remote-desktop]
+pygame>=2.5
+opencv-python>=4.8
+numpy>=1.24

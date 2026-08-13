@@ -1,0 +1,22 @@
+# Core runtime dependencies.
+#   Preferred install:  pip install -e .          (reads pyproject.toml)
+#   Or, plainly:        pip install -r requirements.txt
+customtkinter>=5.2.0
+paramiko>=3.0.0
+openpyxl>=3.1.0
+
+# ── Optional ─────────────────────────────────────────────────────────────────
+# Extended-display window placement:
+#   pip install "clusteros[display]"          → screeninfo>=0.8
+#
+# Remote Desktop, local viewer half:
+#   pip install "clusteros[remote-desktop]"   → pygame, opencv-python, numpy
+#
+# Remote Desktop, remote host half (install ON the node, not here):
+#   pip install mss opencv-python numpy pynput
+#
+# ── Not pip-installable — see README "Prerequisites" ─────────────────────────
+#   python3-tk / tkinter   required, ships with most CPython builds
+#   openssh-client         required
+#   sshpass                only for password-auth interactive terminals
+#   XQuartz (macOS)        only for X11 forwarding of remote GUI apps

@@ -1,0 +1,59 @@
+{
+  "_comment": [
+    "ClusterOS settings. Copy this file to ~/.clusteros/config.json, or let the",
+    "Settings tab in the app write it for you. Every key is optional — anything",
+    "missing falls back to the default shown here. Keys prefixed with _ are",
+    "ignored by the loader and exist only as documentation.",
+    "",
+    "This file holds NO credentials. Node credentials live in clusters.xlsx."
+  ],
+
+  "_theme": "\"dark\" or \"light\". Toggled live from the rail.",
+  "theme": "dark",
+
+  "_refresh_time": "Seconds between monitor polls. Lower = fresher, more SSH load.",
+  "refresh_time": 10,
+
+  "_monitor_workers": "Parallel status probes. Raise for large fleets, lower if the SSH server throttles.",
+  "monitor_workers": 8,
+
+  "_sftp_workers": "Parallel SFTP streams during a transfer. Also caps concurrent handshakes.",
+  "sftp_workers": 3,
+
+  "_connect_retries": "SSH connect attempts before a node is marked offline. Backoff doubles each try.",
+  "connect_retries": 4,
+
+  "_banner_timeout": "Seconds to wait for the SSH protocol banner. Raise on slow or loaded servers.",
+  "banner_timeout": 30,
+
+  "_ssh_timeout": "Base connect/command timeout in seconds.",
+  "ssh_timeout": 5,
+
+  "_cpu_alert": "CPU percent above which a node tile turns red.",
+  "cpu_alert": 90.0,
+
+  "_ram_alert": "RAM percent above which a node tile turns red.",
+  "ram_alert": 90.0,
+
+  "_excel_path": "Absolute path to your inventory workbook. Blank = search clusteros.py's folder, then the cwd, then ~.",
+  "excel_path": "",
+
+  "_notifications": "Desktop pop-ups when a node crosses an alert threshold. macOS and Linux only.",
+  "notifications": false,
+
+  "_gateway": "hostname of a node to tunnel through when a target is not directly routable. Blank = auto-detect.",
+  "gateway": "",
+
+  "_auto_gateway": "When a node is unreachable, automatically pick the best reachable node as a jump host.",
+  "auto_gateway": true,
+
+  "_sim_process_pattern": [
+    "Extended-regex matching YOUR long-running job processes. Each node's tile",
+    "counts matching processes alongside its Slurm jobs. Blank (the default)",
+    "counts Slurm jobs only. Example: \"my-solver|run\\.sh|mpirun\"."
+  ],
+  "sim_process_pattern": "",
+
+  "_x11_forward": "Add `ssh -X` when opening an interactive terminal, so remote GUI apps display locally. Needs XQuartz on macOS.",
+  "x11_forward": true
+}

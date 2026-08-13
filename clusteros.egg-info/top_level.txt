@@ -1,0 +1,4 @@
+clusteros
+host
+protocol
+viewer

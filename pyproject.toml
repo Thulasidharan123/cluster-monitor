@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clusteros"
+version = "2.0.0"
+description = "Unified cluster management suite — monitor, transfer, and administer SSH/Slurm nodes from one desktop interface"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Thulasidharan K" }]
+keywords = ["cluster", "ssh", "slurm", "sftp", "monitoring", "hpc", "gui"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Clustering",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+]
+
+dependencies = [
+    "customtkinter>=5.2.0",
+    "paramiko>=3.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+# Places the window on an extended display when one is attached.
+display = ["screeninfo>=0.8"]
+
+# Local half of the Remote Desktop feature (viewer.py). The remote node needs
+# the host half instead:  pip install mss opencv-python numpy pynput
+remote-desktop = [
+    "pygame>=2.5",
+    "opencv-python>=4.8",
+    "numpy>=1.24",
+]
+
+# Everything optional, in one extra.
+all = [
+    "screeninfo>=0.8",
+    "pygame>=2.5",
+    "opencv-python>=4.8",
+    "numpy>=1.24",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/clusteros"
+Issues = "https://github.com/YOUR_USERNAME/clusteros/issues"
+
+[project.scripts]
+clusteros = "clusteros:main"
+
+[tool.setuptools]
+# Flat single-module layout: clusteros.py plus the remote-desktop helpers.
+py-modules = ["clusteros", "viewer", "host", "protocol"]
+
+[tool.setuptools.package-data]
+"*" = ["clusters.example.xlsx", "config.example.json"]
